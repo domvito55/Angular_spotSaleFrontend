@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "SpotSaleStore"
+  "defaultProject": "SpotSaleStore",
+  "cli": {
+    "analytics": false
+  }
 }
