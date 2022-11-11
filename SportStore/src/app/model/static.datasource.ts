@@ -45,6 +45,8 @@ export class StaticDataSource {
     updateProduct(product): Observable<Product> {
         return new Observable<Product>();
     }
-    
+    deleteProduct(id: string): Observable<Product> {
+        return new Observable<Product>();
+    }    
     
 }

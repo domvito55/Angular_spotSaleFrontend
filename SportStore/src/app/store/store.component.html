@@ -38,6 +38,9 @@
                     [routerLink]="['/product/edit', product._id]">
                     Edit
                   </button>
+                  <button class="btn btn-sm btn-danger" (click)="deleteProduct(product._id)" style="margin-left: 5px;">
+                    Delete
+                  </button>
                 </h4>
                 <div class="card-text bg-white p-1">{{product.description}}</div>
             </div>

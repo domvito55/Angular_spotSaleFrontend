@@ -25,6 +25,9 @@ export class RestDataSource {
   updateProduct(product): Observable<Product> {
     return this.http.put<Product>(this.baseUrl + "edit/" + product._id, product);
   }
+  deleteProduct(id: string): Observable<Product> {
+    return this.http.delete<Product>(this.baseUrl + "delete/" + id);
+  }
   private sendRequest<T>(verb: string, url: string, body?: Product)
            : Observable<T> {
         return this.http.request<T>(verb, url, {

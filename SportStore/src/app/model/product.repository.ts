@@ -18,7 +18,6 @@ export class ProductRepository {
             .filter(p => category == null || category == p.category);
     }
     getProduct(id: string): Product {
-        console.log("tchan nan nan: " + id)
         return this.products.find(p => p._id == id);
     }
     getCategories(): string[] {
@@ -32,6 +31,9 @@ export class ProductRepository {
         if (product._id == null || product._id == "") {
             this.dataSource.saveProduct(product)
                 .subscribe(p => this.products.push(p));
+                if(!this.categories.includes(product.category)){
+                    this.categories.push(product.category);
+                }
          } else {
              this.dataSource.updateProduct(product)
                  .subscribe(p => {
@@ -39,5 +41,14 @@ export class ProductRepository {
                          findIndex(p => p._id == product._id), 1, product);
                  });
          }
+    }
+
+    deleteProduct(id: string) {
+        this.dataSource.deleteProduct(id).subscribe(p => {
+            this.products.splice(this.products.
+                findIndex(p => p._id == id), 1);
+            this.categories = this.products.map(p => p.category)
+                .filter((c, index, array) => array.indexOf(c) == index).sort();
+        })
     }
 }

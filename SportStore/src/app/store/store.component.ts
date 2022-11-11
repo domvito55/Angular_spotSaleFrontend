@@ -41,6 +41,10 @@ export class StoreComponent {
     addProduct() {
         this.router.navigateByUrl("/product");
     }
+    deleteProduct(id: string) {
+        this.repository.deleteProduct(id);
+    }
+
     // get pageNumbers(): number[] {
     //     return Array(Math.ceil(this.repository
     //         .getProducts(this.selectedCategory).length / this.productsPerPage))
