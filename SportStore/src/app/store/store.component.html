@@ -3,8 +3,13 @@
       <div class="col-12 bg-dark text-white">
         <img src="../../assets/Logo.png" alt="logo" width="50" style="margin: 2px;">
         <a class="navbar-brand text-white">StopSale</a>
-        <button class="btn btn-primary float-right" style="margin-top: 5px;">+ New</button>
-      </div>
+        <button class="btn btn-primary" (click)="addProduct()">
+          add New
+        </button>
+        <!-- <a routerLink="/product" class="btn btn-primary align-self-end float-right" role="button" style="margin-top: 5px;">
+          + Add a new Item
+        </a>  -->
+</div>
     </div>
     <div class="row">
         <div class="col-3 p-2">
@@ -38,6 +43,7 @@
                   <option value="4">4 per Page</option>
                   <option value="6">6 per Page</option>
                   <option value="8">8 per Page</option>
+                  <option value="10">10 per Page</option>
                 </select>
               </div>
               <div class="btn-group float-right">

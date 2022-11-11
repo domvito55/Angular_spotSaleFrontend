@@ -39,4 +39,8 @@ export class StaticDataSource {
     getProducts(): Observable<Product[]> {
         return from([this.products]);
     }
+    saveProduct(product: Product): Observable<Product> {
+        return new Observable<Product>();
+    }
+    
 }

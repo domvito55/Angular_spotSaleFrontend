@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 import { Product } from "./product.model";
 import { StaticDataSource } from "./static.datasource";
 @Injectable()
@@ -21,5 +22,8 @@ export class ProductRepository {
     }
     getCategories(): string[] {
         return this.categories;
+    }
+    saveProduct(product: Product): Observable<Product> {
+        return this.dataSource.saveProduct(product);
     }
 }
