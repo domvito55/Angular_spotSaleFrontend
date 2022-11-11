@@ -22,6 +22,9 @@ export class RestDataSource {
   saveProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(this.baseUrl + "add", product);
   }
+  updateProduct(product): Observable<Product> {
+    return this.http.put<Product>(this.baseUrl + "edit/" + product._id, product);
+  }
   private sendRequest<T>(verb: string, url: string, body?: Product)
            : Observable<T> {
         return this.http.request<T>(verb, url, {

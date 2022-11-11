@@ -24,7 +24,20 @@ export class ProductRepository {
     getCategories(): string[] {
         return this.categories;
     }
-    saveProduct(product: Product): Observable<Product> {
-        return this.dataSource.saveProduct(product);
+    // saveProduct(product: Product): Observable<Product> {
+    //     return this.dataSource.saveProduct(product);
+    // }
+
+    saveProduct(product: Product) {
+        if (product._id == null || product._id == "") {
+            this.dataSource.saveProduct(product)
+                .subscribe(p => this.products.push(p));
+         } else {
+             this.dataSource.updateProduct(product)
+                 .subscribe(p => {
+                     this.products.splice(this.products.
+                         findIndex(p => p._id == product._id), 1, product);
+                 });
+         }
     }
 }

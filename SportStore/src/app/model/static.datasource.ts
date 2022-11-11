@@ -42,5 +42,9 @@ export class StaticDataSource {
     saveProduct(product: Product): Observable<Product> {
         return new Observable<Product>();
     }
+    updateProduct(product): Observable<Product> {
+        return new Observable<Product>();
+    }
+    
     
 }

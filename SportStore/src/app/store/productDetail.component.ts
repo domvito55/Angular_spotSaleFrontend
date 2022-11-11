@@ -33,11 +33,8 @@ export class ProductDetailComponent {
     submitProduct(form: NgForm) {
         this.submitted = true;
         if (form.valid) {
-            this.repository.saveProduct(this.product).subscribe(product => {
-                this.product.clear();
-                this.productSent = true;
-                this.submitted = false;
-            });
+            this.repository.saveProduct(this.product);
+            this.router.navigateByUrl("/store");
         }
     }
 }
