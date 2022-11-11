@@ -3,7 +3,7 @@ module.exports = function () {
         products: [
             {
                 _id: "63686f3bf815940658985e1b",
-                category: "Sports",
+                category: "SpotSale",
                 title: "Nike Tiempo Legend 8 Elite MI SG-Pro Anti-Clog Traction",
                 description: "Brand new",
                 condition: "Brand new",

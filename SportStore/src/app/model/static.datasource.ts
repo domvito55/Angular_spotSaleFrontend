@@ -5,7 +5,7 @@ import { Observable, from } from "rxjs";
 export class StaticDataSource {
     private products: Product[] = [
         new Product("63686f3bf815940658985e1b",
-        "Sports",
+        "SpotSale",
         "Nike Tiempo Legend 8 Elite MI SG-Pro Anti-Clog Traction",
         "Brand new",
         "Brand new",
