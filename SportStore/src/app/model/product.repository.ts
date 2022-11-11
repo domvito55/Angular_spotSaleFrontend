@@ -18,7 +18,8 @@ export class ProductRepository {
             .filter(p => category == null || category == p.category);
     }
     getProduct(id: string): Product {
-        return this.products.find(p => p.id_ == id);
+        console.log("tchan nan nan: " + id)
+        return this.products.find(p => p._id == id);
     }
     getCategories(): string[] {
         return this.categories;

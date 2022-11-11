@@ -22,6 +22,7 @@ export class ProductDetailComponent {
             if (this.editing) {
                 Object.assign(this.product,
                     repository.getProduct(activeRoute.snapshot.params["id"]));
+                console.log("Vai vai vai vai: " + activeRoute.snapshot.params["id"]);
             }
     }
     save(form: NgForm) {

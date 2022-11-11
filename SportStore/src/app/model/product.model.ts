@@ -1,6 +1,6 @@
 export class Product {
     constructor(
-        public id_?: string,
+        public _id?: string,
         public category?: string,
         public title?: string,
         public description?: string,
@@ -17,7 +17,7 @@ export class Product {
         public questionAnswer?: [ {question: string, answer: string} ]
     ) { }
     clear() {
-        this.id_ = null;
+        this._id = null;
         this.category = this.title = this.description = null;
         this.condition = this.imageURL = this.price = null;
         this.sold = this.enable = false;
