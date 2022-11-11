@@ -5,6 +5,10 @@
     </div>
   </div>
 </div>
+<div class="bg-primary p-2 text-white" [class.bg-warning]="editing"
+     [class.text-dark]="editing">
+    <h5>{{editing  ? "Edit" : "Create"}} Product</h5>
+</div>
 <div *ngIf="productSent" class="m-2 text-center">
   <h2>Thanks!</h2>
   <p>Thanks for placing your order.</p>
