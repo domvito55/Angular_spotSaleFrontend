@@ -1,3 +1,8 @@
+/**
+  Title:       SpotSale
+  IDs:         301208156, 301236904, 301251832, 301313468, 301268678
+  Description: logic for creating and editing a product ad.
+*/
 import { Component } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { NgForm } from "@angular/forms";
@@ -18,18 +23,21 @@ export class ProductDetailComponent {
     constructor(private repository: ProductRepository,
         private router: Router,
         activeRoute: ActivatedRoute) {
+            //decide if the page is for edit or create
             this.editing = activeRoute.snapshot.params["mode"] == "edit";
             if (this.editing) {
                 Object.assign(this.product,
                     repository.getProduct(activeRoute.snapshot.params["id"]));
-                console.log("Vai vai vai vai: " + activeRoute.snapshot.params["id"]);
             }
     }
+
+/* example of validation to be used in future release
     save(form: NgForm) {
         this.repository.saveProduct(this.product);
         this.router.navigateByUrl("/admin/main/products");
     }
-
+*/
+    //Saving (created or adited ad)
     submitProduct(form: NgForm) {
         this.submitted = true;
         if (form.valid) {

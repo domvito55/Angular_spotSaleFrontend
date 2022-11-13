@@ -1,3 +1,8 @@
+/**
+  Title:       SpotSale
+  IDs:         301208156, 301236904, 301251832, 301313468, 301268678
+  Description: logic for landing page.
+*/
 import { Component } from "@angular/core";
 import { Product } from "../model/product.model";
 import { ProductRepository } from "../model/product.repository";
@@ -17,7 +22,6 @@ export class StoreComponent {
         private router: Router) { }
     get products(): Product[] {
         let pageIndex = (this.selectedPage - 1) * this.productsPerPage
-        console.log("teste: " + this.repository.getProducts() + "!")
         return this.repository.getProducts(this.selectedCategory)
             .slice(pageIndex, pageIndex + this.productsPerPage);
     }
@@ -45,6 +49,7 @@ export class StoreComponent {
         this.repository.deleteProduct(id);
     }
 
+    // alternative implementation for pagination
     // get pageNumbers(): number[] {
     //     return Array(Math.ceil(this.repository
     //         .getProducts(this.selectedCategory).length / this.productsPerPage))
