@@ -25,7 +25,7 @@
             "styles": [
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": []
           },
@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "SpotSaleStore"
+  "defaultProject": "SpotSaleStore",
+  "cli": {
+    "analytics": "78bd46cc-803b-4d31-a8ec-d94c02f189d8"
+  }
 }
