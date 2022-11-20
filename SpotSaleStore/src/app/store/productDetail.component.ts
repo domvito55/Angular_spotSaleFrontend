@@ -16,7 +16,6 @@ import { Product } from "../model/product.model";
 
 export class ProductDetailComponent {
     editing: boolean = false;
-    productSent: boolean = false;
     submitted: boolean = false;
     public product: Product  = new Product();
 

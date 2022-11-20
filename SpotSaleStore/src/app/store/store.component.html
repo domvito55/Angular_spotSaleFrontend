@@ -8,13 +8,13 @@
       <div class="col-12 bg-dark text-white">
         <img src="../../assets/Logo.png" alt="logo" width="50" style="margin: 2px;">
         <a class="navbar-brand text-white">SpotSale</a>
-        <button class="btn btn-primary" (click)="addProduct()">
+        <!-- alternative button -->
+        <!-- <button class="btn btn-primary" (click)="addProduct()">
           Add New Product
-        </button>
-        <!-- alternative button, did not work.
+        </button> -->
           <a routerLink="/product" class="btn btn-primary align-self-end float-right" role="button" style="margin-top: 5px;">
           + Add a new Item
-        </a>  -->
+        </a> 
 </div>
     </div>
     <div class="row">
@@ -40,15 +40,17 @@
                     {{ product.price | currency:"USD":"symbol":"2.2-2" }}
                     
                   </span>
-                  <button class="btn btn-sm btn-warning"
+                </h4>
+                <div class="card-text bg-white p-1">
+                  {{product.description}}
+                  <button class="btn btn-sm btn-warning float-right" style="width: 58px;"
                     [routerLink]="['/product/edit', product._id]">
                     Edit
                   </button>
-                  <button class="btn btn-sm btn-danger" (click)="deleteProduct(product._id)" style="margin-left: 5px;">
+                  <button class="btn btn-sm btn-danger float-right" (click)="deleteProduct(product._id)" style="margin-top: 5px; clear:both">
                     Delete
                   </button>
-                </h4>
-                <div class="card-text bg-white p-1">{{product.description}}</div>
+                </div>
             </div>
             <div class="form-inline float-left mr-1">
                 <select class="form-control" [value]="productsPerPage" #pageSize

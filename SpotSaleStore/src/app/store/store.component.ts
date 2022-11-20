@@ -42,9 +42,10 @@ export class StoreComponent {
         return Math.ceil(this.repository
             .getProducts(this.selectedCategory).length / this.productsPerPage)
     }
-    addProduct() {
-        this.router.navigateByUrl("/product");
-    }
+    //Alternative way to add product
+    // addProduct() {
+    //     this.router.navigateByUrl("/product");
+    // }
     deleteProduct(id: string) {
         this.repository.deleteProduct(id);
     }

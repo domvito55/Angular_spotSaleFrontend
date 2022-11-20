@@ -14,7 +14,7 @@
      [class.text-dark]="editing">
     <h5>{{editing  ? "Edit" : "Create"}} Product</h5>
 </div>
-<form *ngIf="!productSent" #form="ngForm" novalidate
+<form #form="ngForm" novalidate
       (ngSubmit)="submitProduct(form)" class="m-2">
   <div class="form-group">
     <label>Title</label>

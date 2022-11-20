@@ -1,4 +1,5 @@
 export class Product {
+    //Constructor
     constructor(
         public _id?: string,
         public category?: string,
@@ -16,6 +17,8 @@ export class Product {
         public userName?: string,
         public questionAnswer?: [ {question: string, answer: string} ]
     ) { }
+
+    //Methods
     clear() {
         this._id = null;
         this.category = this.title = this.description = null;

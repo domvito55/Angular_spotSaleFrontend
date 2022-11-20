@@ -13,11 +13,12 @@ const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot([
+    { path: "", component: StoreComponent },
     { path: "store", component: StoreComponent },
     { path: "product/:mode/:id", component: ProductDetailComponent },
     { path: "product/:mode", component: ProductDetailComponent },
     { path: "product", component: ProductDetailComponent },
-    { path: "**", redirectTo: "/store" }
+    { path: "**", redirectTo: "" }
   ])],
   exports: [RouterModule]
 })
