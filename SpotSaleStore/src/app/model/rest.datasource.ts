@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Product } from "./product.model";
 
-const PROTOCOL = "http";
+const PROTOCOL = "https";
 const PORT = 3500;
 
 
@@ -22,7 +22,7 @@ export class RestDataSource {
   saveProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(this.baseUrl + "add", product);
   }
-  updateProduct(product): Observable<Product> {
+  updateProduct(product: Product): Observable<Product> {
     return this.http.put<Product>(this.baseUrl + "edit/" + product._id, product);
   }
   deleteProduct(id: string): Observable<Product> {

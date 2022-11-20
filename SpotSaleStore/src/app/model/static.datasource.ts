@@ -42,7 +42,7 @@ export class StaticDataSource {
     saveProduct(product: Product): Observable<Product> {
         return new Observable<Product>();
     }
-    updateProduct(product): Observable<Product> {
+    updateProduct(product: Product): Observable<Product> {
         return new Observable<Product>();
     }
     deleteProduct(id: string): Observable<Product> {

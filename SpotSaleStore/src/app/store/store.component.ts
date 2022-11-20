@@ -15,8 +15,8 @@ import { Router } from "@angular/router";
 })
 
 export class StoreComponent {
-    public selectedCategory = null;
-    public productsPerPage = 10;
+    public selectedCategory: any = null;
+    public productsPerPage = 4;
     public selectedPage = 1;
     constructor(private repository: ProductRepository,
         private router: Router) { }
@@ -34,7 +34,7 @@ export class StoreComponent {
     changePage(newPage: number) {
         this.selectedPage = newPage;
     }
-    changePageSize(newSize: number) {
+    changePageSize(newSize: string) {
         this.productsPerPage = Number(newSize);
         this.changePage(1);
     }
