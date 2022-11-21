@@ -4,15 +4,7 @@
   Description: view for creating and editing a product ad.
  -->
 <div class="container-fluid">
-  <div class="row">
-    <div class="col bg-dark text-white">
-      <a class="navbar-brand">SPOT SALE STORE</a>
-    </div>
-  </div>
-</div>
-<div class="bg-primary p-2 text-white" [class.bg-warning]="editing"
-     [class.text-dark]="editing">
-    <h5>{{editing  ? "Edit" : "Create"}} Product</h5>
+  <app-header [pageTitle]="pageTitle" [editing]="editing"></app-header>
 </div>
 <form #form="ngForm" novalidate
       (ngSubmit)="submitProduct(form)" class="m-2">
@@ -56,3 +48,4 @@
 
   </div>
 </form>
+<app-footer></app-footer>

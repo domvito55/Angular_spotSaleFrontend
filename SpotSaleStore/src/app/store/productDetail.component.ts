@@ -15,6 +15,7 @@ import { Product } from "../model/product.model";
 })
 
 export class ProductDetailComponent {
+    pageTitle: string = 'Create';
     editing: boolean = false;
     submitted: boolean = false;
     public product: Product  = new Product();

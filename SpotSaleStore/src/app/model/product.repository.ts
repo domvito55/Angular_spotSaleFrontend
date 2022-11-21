@@ -49,7 +49,6 @@ export class ProductRepository {
                 });
         }
     }
-
     //Delete
     deleteProduct(id: string) {
         this.dataSource.deleteProduct(id).subscribe(p => {

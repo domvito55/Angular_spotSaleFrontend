@@ -12,9 +12,11 @@ import { StoreComponent } from "./store.component";
 import { CounterDirective } from "./counter.directive";
 import { ProductDetailComponent } from "./productDetail.component";
 import { RouterModule } from "@angular/router";
+import { PartialsModule } from '../partials/partials.module';
+
 
 @NgModule({
-    imports: [ModelModule, BrowserModule, FormsModule, RouterModule],
+    imports: [ModelModule, BrowserModule, FormsModule, RouterModule, PartialsModule],
     declarations: [StoreComponent, CounterDirective, ProductDetailComponent],
     exports: [StoreComponent, ProductDetailComponent]
 })

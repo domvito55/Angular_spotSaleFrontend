@@ -15,6 +15,7 @@ import { Router } from "@angular/router";
 })
 
 export class StoreComponent {
+    title: string = 'Landing Page';
     public selectedCategory: any = null;
     public productsPerPage = 4;
     public selectedPage = 1;

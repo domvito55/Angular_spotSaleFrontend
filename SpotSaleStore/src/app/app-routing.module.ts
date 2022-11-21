@@ -1,13 +1,16 @@
 /** File to manage the routing
- * 
- */
+  Title:       SpotSale
+  IDs:         301208156, 301236904, 301251832, 301313468, 301268678
+  Description: logic for creating and editing a product ad.
+*/
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { StoreModule } from "./store/store.module";
 import { StoreComponent } from "./store/store.component";
 import { ProductDetailComponent } from "./store/productDetail.component";
+import { SignInComponent } from './auth/signin.component';
+import { SignUpComponent } from './auth/signup.component';
+
 
 const routes: Routes = [];
 
@@ -18,6 +21,8 @@ const routes: Routes = [];
     { path: "product/:mode/:id", component: ProductDetailComponent },
     { path: "product/:mode", component: ProductDetailComponent },
     { path: "product", component: ProductDetailComponent },
+    { path: "users/signin", component: SignInComponent },
+    { path: "users/signup", component: SignUpComponent },
     { path: "**", redirectTo: "" }
   ])],
   exports: [RouterModule]
