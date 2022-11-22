@@ -10,7 +10,7 @@ import { User } from "../model/user.model";
 
 export class SignUpComponent {
     public pageTitle: string = "Sign-up";
-    // signup:boolean = true;
+    signupmode:boolean = true;
 
     public user: User = new User();
     public confirmPassowrd: string;
