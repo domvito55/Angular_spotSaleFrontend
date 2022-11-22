@@ -6,6 +6,7 @@
 import { Component } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
+import { AuthService } from "../model/auth.service";
 
 //import { AuthService } from "../../models/auth.service";
 
@@ -21,19 +22,19 @@ export class SignInComponent {
     public message: string;
 
     constructor(private router: Router,
-        /* private auth: AuthService */) { }
+        private auth: AuthService) { }
 
     authenticate(form: NgForm) {
         if (form.valid) {
             // perform authentication
-/*             this.auth.authenticate(this.username, this.password)
+            this.auth.authenticate(this.username, this.password)
                 .subscribe(response => {
                     if (response.success) {
                         this.router.navigateByUrl(this.auth.redirectUrl || "");
                     }
                     this.message = response.message;
                 });
- */        } else {
+        } else {
             this.message = "Form Data Invalid";
         }
     }

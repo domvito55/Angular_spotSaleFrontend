@@ -4,7 +4,7 @@ import {
     RouterStateSnapshot,
     Router
 } from "@angular/router";
-import { AuthService } from "../../models/auth.service";
+import { AuthService } from "../model/auth.service";
 
 @Injectable()
 export class AuthGuard {
