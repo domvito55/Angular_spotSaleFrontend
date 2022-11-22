@@ -8,7 +8,7 @@ import { SignInComponent } from "./signin.component";
 import { SignUpComponent } from "./signup.component";
 
 @NgModule({
-    imports: [ModelModule, BrowserModule, FormsModule, RouterModule, PartialsModule],
+    imports: [ModelModule, BrowserModule, FormsModule, PartialsModule],
     declarations: [SignInComponent, SignUpComponent ],
     exports : [SignInComponent, SignUpComponent ]
 })

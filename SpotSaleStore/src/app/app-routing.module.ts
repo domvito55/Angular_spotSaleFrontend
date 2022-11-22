@@ -10,6 +10,7 @@ import { StoreComponent } from "./store/store.component";
 import { ProductDetailComponent } from "./store/productDetail.component";
 import { SignInComponent } from './auth/signin.component';
 import { SignUpComponent } from './auth/signup.component';
+import { AuthGuard } from "./auth/auth.guard";
 
 
 const routes: Routes = [];
@@ -18,8 +19,8 @@ const routes: Routes = [];
   imports: [RouterModule.forRoot([
     { path: "", component: StoreComponent },
     { path: "store", component: StoreComponent },
-    { path: "product/:mode/:id", component: ProductDetailComponent },
-    { path: "product/:mode", component: ProductDetailComponent },
+    { path: "product/:mode/:id", component: ProductDetailComponent, canActivate: [AuthGuard]},
+    { path: "product/:mode", component: ProductDetailComponent,  canActivate: [AuthGuard]},
     { path: "product", component: ProductDetailComponent },
     { path: "users/signin", component: SignInComponent },
     { path: "users/signup", component: SignUpComponent },
