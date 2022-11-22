@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 export class HeaderComponent {
   @Input() pageTitle?: string;
   @Input() editing?: boolean;
-  @Input() signup?: boolean;
+  @Input() signupmode?: boolean;
 
   constructor(/* public auth: AuthService, */ private router: Router) {
     if(this.pageTitle == 'Edit'){

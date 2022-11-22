@@ -36,7 +36,7 @@
      [class.text-dark]="editing">
     <h5>{{editing  ? "Edit" : "Create"}} Product</h5>
 </div>
-<div *ngIf="(pageTitle=='Sign-up' || pageTitle=='Sign-in');" class="row bg-primary p-2 text-white" [class.bg-warning]="signup"
-     [class.text-dark]="signup">
+<div *ngIf="(pageTitle=='Sign-up' || pageTitle=='Sign-in');" class="row bg-primary p-2 text-white" [class.bg-warning]="signupmode"
+     [class.text-dark]="signupmode">
     <h5>{{pageTitle}}</h5>
 </div>
