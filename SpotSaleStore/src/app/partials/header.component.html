@@ -23,11 +23,11 @@
 <nav class="row bg-secondary navbar-dark">
   <ul class="navbar-nav" style="padding-left: 10px;">
     <li class="nav-item">
-      <!-- <a *ngIf="auth.username != null" class="nav-link" routerLink="" (click)="logout()">Sign Out ({{ auth.username }})</a> -->
-      <!-- <a *ngIf="auth.username == null" class="nav-link" routerLink="/users/signin">Signin</a> -->
-      <a class="nav-link" routerLink="/users/signin" style="height: 20px; line-height: 15px; margin: 0; padding: 0;">
+      <a *ngIf="auth.username != null" class="nav-link" routerLink="" (click)="logout()">Sign Out ({{ auth.username }})</a>
+      <a *ngIf="auth.username == null" class="nav-link" routerLink="/users/signin">Signin</a>
+      <!-- <a class="nav-link" routerLink="/users/signin" style="height: 20px; line-height: 15px; margin: 0; padding: 0;">
         Signin
-      </a>
+      </a> -->
     </li>
   </ul>
 </nav>
@@ -36,7 +36,7 @@
      [class.text-dark]="editing">
     <h5>{{editing  ? "Edit" : "Create"}} Product</h5>
 </div>
-<div *ngIf="(pageTitle=='Sign-up' || pageTitle=='Sign-in');" class="row bg-primary p-2 text-white" [class.bg-warning]="signupmode"
-     [class.text-dark]="signupmode">
+<div *ngIf="(pageTitle=='Sign-up' || pageTitle=='Sign-in');" class="row bg-primary p-2 text-white" [class.bg-warning]="signup"
+     [class.text-dark]="signup">
     <h5>{{pageTitle}}</h5>
 </div>

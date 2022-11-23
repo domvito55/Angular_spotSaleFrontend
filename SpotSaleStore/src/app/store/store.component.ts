@@ -4,10 +4,11 @@
   Description: logic for landing page.
 */
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 import { Product } from "../model/product.model";
 import { ProductRepository } from "../model/product.repository";
 
-import { Router } from "@angular/router";
+
 
 @Component({
     selector: "store",
@@ -15,12 +16,18 @@ import { Router } from "@angular/router";
 })
 
 export class StoreComponent {
+
     title: string = 'Landing Page';
+
     public selectedCategory: any = null;
     public productsPerPage = 4;
     public selectedPage = 1;
+
     constructor(private repository: ProductRepository,
-        private router: Router) { }
+        private router: Router) { 
+            repository.setProduct();      
+        }
+
     get products(): Product[] {
         let pageIndex = (this.selectedPage - 1) * this.productsPerPage
         return this.repository.getProducts(this.selectedCategory)
@@ -43,13 +50,17 @@ export class StoreComponent {
         return Math.ceil(this.repository
             .getProducts(this.selectedCategory).length / this.productsPerPage)
     }
-    //Alternative way to add product
+
+    // //Alternative way to add product
     // addProduct() {
     //     this.router.navigateByUrl("/product");
     // }
+
     deleteProduct(id: string) {
+        if(confirm("Are you sure do you want to delete?")) {
         this.repository.deleteProduct(id);
     }
+}
 
     // alternative implementation for pagination
     // get pageNumbers(): number[] {
