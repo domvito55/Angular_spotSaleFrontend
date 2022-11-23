@@ -22,7 +22,7 @@ export class RestDataSource {
   constructor(private http: HttpClient) {
 
     // User Signin/ Signout/ and User Edit Restriction is not functional
-    this.baseUrl = `https://orca-app-yod9h.ondigitalocean.app/`;
+    this.baseUrl = `https://orca-app-yod9h.ondigitalocean.app`;
 
     // User Signin/ Signout/ and User Edit Restriction is functional
     // this.baseUrl = `http://${location.hostname}:${PORT}/`;
@@ -32,12 +32,12 @@ export class RestDataSource {
   }
 
   getProducts(): Observable<Product[]> {
-       return this.http.get<Product[]>(this.baseUrl);
+       return this.http.get<Product[]>(this.baseUrl + "/advertisement");
   }
 
   saveProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(
-      this.baseUrl + "add",
+      this.baseUrl + "/advertisement/add",
       product,
       this.provideToken()
     ).pipe(map(response => {
@@ -55,7 +55,7 @@ export class RestDataSource {
 
   updateProduct(product: Product): Observable<ResponseModel> {
     return this.http.put<ResponseModel>(
-      `${this.baseUrl}edit/${product._id}`,
+      `${this.baseUrl}advertisement/edit/${product._id}`,
       product,
       this.provideToken()
     ).pipe(map(response => {
@@ -70,7 +70,7 @@ export class RestDataSource {
 
   deleteProduct(id: string): Observable<ResponseModel> {
     return this.http.delete<ResponseModel>(
-      `${this.baseUrl}delete/${id}`,
+      `${this.baseUrl}advertisement/delete/${id}`,
       this.provideToken()
       ).pipe(map(response => {
       return response;
@@ -84,7 +84,7 @@ export class RestDataSource {
 
   // User endpoint of the API
   authenticate(user: string, pass: string): Observable<ResponseModel> {
-    return this.http.post<any>(this.baseUrl + "users/signin",
+    return this.http.post<any>(this.baseUrl + "/users/signin",
       {
         username: user,
         password: pass
@@ -99,7 +99,7 @@ export class RestDataSource {
   }
 
   signupUser(user: User): Observable<ResponseModel> {
-    return this.http.post<ResponseModel>(this.baseUrl + "users/signup", user)
+    return this.http.post<ResponseModel>(this.baseUrl + "/users/signup", user)
       .pipe(map(response => {
         return response;
       }),
