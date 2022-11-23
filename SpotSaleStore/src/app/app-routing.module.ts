@@ -10,10 +10,11 @@ import { StoreComponent } from "./store/store.component";
 import { ProductDetailComponent } from "./store/productDetail.component";
 import { SignInComponent } from './auth/signin.component';
 import { SignUpComponent } from './auth/signup.component';
+
 import { AuthGuard } from "./auth/auth.guard";
 
 
-const routes: Routes = [];
+// const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -26,6 +27,6 @@ const routes: Routes = [];
     { path: "users/signup", component: SignUpComponent },
     { path: "**", redirectTo: "" }
   ])],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

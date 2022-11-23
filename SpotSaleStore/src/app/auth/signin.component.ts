@@ -8,7 +8,6 @@ import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AuthService } from "../model/auth.service";
 
-//import { AuthService } from "../../models/auth.service";
 
 @Component({
     templateUrl: "signin.component.html"
@@ -16,7 +15,6 @@ import { AuthService } from "../model/auth.service";
 
 export class SignInComponent {
     public pageTitle: string = "Sign-in";
-    public title: string = "Sign";
     public username: string;
     public password: string;
     public message: string;

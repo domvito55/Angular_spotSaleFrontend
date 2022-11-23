@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
 import { Product } from "./product.model";
 import { RestDataSource } from "./rest.datasource";
 import { ResponseModel } from "./response.model";
@@ -10,6 +9,7 @@ export class ProductRepository {
     //properties
     private products: Product[] = [];
     private categories: string[] = [];
+    listReady: boolean = false;
 
     //constructor
     constructor(private dataSource: RestDataSource) {
@@ -30,24 +30,33 @@ export class ProductRepository {
     getProduct(id: string): Product {
         return this.products.find(p => p._id == id);
     }
+
+    setProduct(){
+        this.listReady = false;
+        this.dataSource.getProducts().subscribe(data => {
+            this.products = data;
+            this.listReady = true;
+        });
+    }
+
     getCategories(): string[] {
         return this.categories;
     }
     //__Create and update method
-    saveProduct(product: Product) {
+    async saveProduct(product: Product) {
         //Create
         if (product._id == null || product._id == "") {
             this.dataSource.saveProduct(product)
-                .subscribe(p => this.products.push(p));
+                .subscribe(response => this.products.push(response));
                 if(!this.categories.includes(product.category)){
                     this.categories.push(product.category);
                 }
         //Update
         } else {
             this.dataSource.updateProduct(product)
-                .subscribe(p => {
+                .subscribe(response => {
                     this.products.splice(this.products.
-                        findIndex(p => p._id == product._id), 1, product);
+                        findIndex(response => response._id == product._id), 1, product);
                 });
         }
     }
@@ -60,4 +69,5 @@ export class ProductRepository {
                 .filter((c, index, array) => array.indexOf(c) == index).sort();
         })
     }
+    
 }
