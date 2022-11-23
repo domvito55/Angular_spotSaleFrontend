@@ -22,10 +22,10 @@ export class RestDataSource {
   constructor(private http: HttpClient) {
 
     // User Signin/ Signout/ and User Edit Restriction is not functional
-    // this.baseUrl = `https://orca-app-yod9h.ondigitalocean.app/advertisement/`;
+    this.baseUrl = `https://orca-app-yod9h.ondigitalocean.app/`;
 
     // User Signin/ Signout/ and User Edit Restriction is functional
-    this.baseUrl = `http://${location.hostname}:${PORT}/`;
+    // this.baseUrl = `http://${location.hostname}:${PORT}/`;
 
     // User Signin/ Signout/ and User Edit Restriction is functional
     // this.baseUrl = `https://comp229018-f2022-301268678.herokuapp.com/`;
