@@ -13,9 +13,6 @@ import { SignUpComponent } from './auth/signup.component';
 
 import { AuthGuard } from "./auth/auth.guard";
 
-
-// const routes: Routes = [];
-
 @NgModule({
   imports: [RouterModule.forRoot([
     { path: "", component: StoreComponent },

@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { ModelModule } from "../model/model.module";
 import { PartialsModule } from '../partials/partials.module';
