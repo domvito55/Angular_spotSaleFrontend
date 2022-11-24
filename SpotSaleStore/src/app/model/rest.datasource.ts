@@ -9,7 +9,7 @@ import { User } from "./user.model";
 
 
 
-const PROTOCOL = "http";
+const PROTOCOL = "https";
 const PORT = 3000;
 
 
@@ -21,14 +21,9 @@ export class RestDataSource {
 
   constructor(private http: HttpClient) {
 
-    // User Signin/ Signout/ and User Edit Restriction is not functional
-    this.baseUrl = `https://orca-app-yod9h.ondigitalocean.app`;
-
-    // User Signin/ Signout/ and User Edit Restriction is functional
-    // this.baseUrl = `http://${location.hostname}:${PORT}/`;
-
-    // User Signin/ Signout/ and User Edit Restriction is functional
-    // this.baseUrl = `https://comp229018-f2022-301268678.herokuapp.com/`;
+  //  this.baseUrl = "https://groupproject-comp229-2022.herokuapp.com/advertisement/";
+  this.baseUrl = `${PROTOCOL}://orca-app-yod9h.ondigitalocean.app`;
+  //    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
   }
 
   getProducts(): Observable<Product[]> {

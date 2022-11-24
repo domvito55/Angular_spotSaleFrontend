@@ -55,12 +55,12 @@ export class ProductDetailComponent {
         this.router.navigateByUrl("/");
     }
 
-    /* example of validation to be used in future release
-        save(form: NgForm) {
+    // example of validation to be used in future release
+/*         save(form: NgForm) {
             this.repository.saveProduct(this.product);
             this.router.navigateByUrl("/admin/main/products");
         }
-    */
+ */
     //Saving (created or adited ad)
     submitProduct(form: NgForm) {
         this.submitted = true;

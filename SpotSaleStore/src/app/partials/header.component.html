@@ -23,11 +23,11 @@
 <nav class="row bg-secondary navbar-dark">
   <ul class="navbar-nav" style="padding-left: 10px;">
     <li class="nav-item">
-      <!-- <a *ngIf="auth.username != null" class="nav-link" routerLink="" (click)="logout()">Sign Out ({{ auth.username }})</a> -->
-      <!-- <a *ngIf="auth.username == null" class="nav-link" routerLink="/users/signin">Signin</a> -->
-      <a class="nav-link" routerLink="/users/signin" style="height: 20px; line-height: 15px; margin: 0; padding: 0;">
+      <a *ngIf="auth.username != null" class="nav-link" routerLink="" (click)="logout()"  style="height: 20px; line-height: 15px; margin: 0; padding: 0;">Sign Out ({{ auth.username }})</a>
+      <a *ngIf="auth.username == null" class="nav-link" routerLink="/users/signin"  style="height: 20px; line-height: 15px; margin: 0; padding: 0;">Signin</a>
+      <!-- <a class="nav-link" routerLink="/users/signin" style="height: 20px; line-height: 15px; margin: 0; padding: 0;">
         Signin
-      </a>
+      </a> -->
     </li>
   </ul>
 </nav>
