@@ -19,7 +19,7 @@
 </a>
     <a *ngIf="auth.username != null" class="btn btn-secondary  float-right mr-3" routerLink="" (click)="logout()"  style="margin-top: 9px;">
       <i class="fa fa-door-open"></i> Sign Out ({{ auth.username }})</a>
-    <a *ngIf="auth.username == null" class="btn btn-secondary float-right mr-3" routerLink="/users/signin"  style="margin-top: 9px;">
+    <a *ngIf="auth.username == null" class="btn btn-light float-right mr-3" routerLink="/users/signin"  style="margin-top: 9px;">
       <i class="fa fa-door-closed"></i> Sign-in</a>
   </div>
 </div>
