@@ -18,6 +18,7 @@ export class RestDataSource {
 
   baseUrl: string;
   auth_token: string;
+  user_id: string;
 
   constructor(private http: HttpClient) {
 
@@ -50,10 +51,11 @@ export class RestDataSource {
 
   updateProduct(product: Product): Observable<ResponseModel> {
     return this.http.put<ResponseModel>(
-      `${this.baseUrl}advertisement/edit/${product._id}`,
+      `${this.baseUrl}/advertisement/edit/${product._id}`,
       product,
       this.provideToken()
     ).pipe(map(response => {
+      console.log("user id: " + this.user_id)
       return response;
     }),
       catchError(error => { return of(error.error) }));
@@ -65,7 +67,7 @@ export class RestDataSource {
 
   deleteProduct(id: string): Observable<ResponseModel> {
     return this.http.delete<ResponseModel>(
-      `${this.baseUrl}advertisement/delete/${id}`,
+      `${this.baseUrl}/advertisement/delete/${id}`,
       this.provideToken()
       ).pipe(map(response => {
       return response;
@@ -87,6 +89,7 @@ export class RestDataSource {
         map(response => {
           // console.log(response);
           this.auth_token = response.success ? response.token : null;
+          this.user_id = response.success ? response.user_id : null;
           return response;
         }),
         catchError(error => { return of(error.error) })

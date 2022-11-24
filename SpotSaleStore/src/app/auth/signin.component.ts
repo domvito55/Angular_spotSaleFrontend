@@ -7,6 +7,7 @@ import { Component } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AuthService } from "../model/auth.service";
+import { RestDataSource } from "../model/rest.datasource";
 
 
 @Component({
@@ -20,7 +21,8 @@ export class SignInComponent {
     public message: string;
 
     constructor(private router: Router,
-        private auth: AuthService) { }
+        private auth: AuthService,
+        private dataSource: RestDataSource) { }
 
     authenticate(form: NgForm) {
         if (form.valid) {

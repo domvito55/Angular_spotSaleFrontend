@@ -7,6 +7,8 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { Product } from "../model/product.model";
 import { ProductRepository } from "../model/product.repository";
+import { RestDataSource } from "../model/rest.datasource";
+
 
 
 
@@ -20,16 +22,20 @@ export class StoreComponent {
     title: string = 'Landing Page';
 
     public selectedCategory: any = null;
-    public productsPerPage = 4;
+    public productsPerPage = 6;
     public selectedPage = 1;
+    public productsQuantity: number;
+
 
     constructor(private repository: ProductRepository,
-        private router: Router) { 
-            repository.setProduct();      
+        private router: Router,
+        private dataSource: RestDataSource) { 
+            repository.setProduct();
         }
 
     get products(): Product[] {
         let pageIndex = (this.selectedPage - 1) * this.productsPerPage
+        this.productsQuantity = this.repository.getProducts().length;
         return this.repository.getProducts(this.selectedCategory)
             .slice(pageIndex, pageIndex + this.productsPerPage);
     }
@@ -38,6 +44,9 @@ export class StoreComponent {
     }
     changeCategory(newCategory?: string) {
         this.selectedCategory = newCategory;
+    }
+    belongsToThisSessionUser(product: Product): boolean {
+        return (product.owner == this.dataSource.user_id);
     }
     changePage(newPage: number) {
         this.selectedPage = newPage;
@@ -56,11 +65,11 @@ export class StoreComponent {
     //     this.router.navigateByUrl("/product");
     // }
 
-    deleteProduct(id: string) {
-        if(confirm("Are you sure do you want to delete?")) {
-        this.repository.deleteProduct(id);
-    }
-}
+    // deleteProduct(id: string) {
+    //     if(confirm("Are you sure do you want to delete?")) {
+    //         this.repository.deleteProduct(id);
+    //     }
+    // }
 
     // alternative implementation for pagination
     // get pageNumbers(): number[] {

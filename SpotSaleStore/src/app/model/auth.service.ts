@@ -35,6 +35,7 @@ export class AuthService {
     clear() {
         this.username = null;
         this.datasource.auth_token = null;
+        this.datasource.user_id = null;
     }
 
     get redirectUrl(): string{

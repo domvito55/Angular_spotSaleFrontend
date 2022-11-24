@@ -25,8 +25,12 @@ export class ProductRepository {
     //_CRUD
     //__Read methods
     getProducts(category: string = null): Product[] {
+        // console.log(this.products
+        //     .filter(p => category == null || category == p.category)
+        //     .sort((a, b) =>{return (a.title > b.title)? 1 : -1;}));
         return this.products
-            .filter(p => category == null || category == p.category);
+            .filter(p => category == null || category == p.category)
+            .sort((a, b) =>{return (a.title > b.title)? 1 : -1;});
     }
     getProduct(id: string): Product {
         return this.products.find(p => p._id == id);
