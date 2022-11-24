@@ -10,12 +10,20 @@
       (ngSubmit)="submitProduct(form)" class="m-2">
   <div class="form-group">
     <label>Title</label>
+    <a *ngIf="editing"
+        class="btn btn-success align-self-end float-right"
+        [class.btn-danger]="product.enable"
+        role="button" style="margin-bottom: 2px; margin-top: -5px;"
+        (click)="product.enable = !product.enable" >
+        {{product.enable ? "DEACTIVE" : "ACTIVE"}}
+    </a>
     <input class="form-control" #title="ngModel" name="title"
             [(ngModel)]="product.title" required />
     <span *ngIf="submitted && title.invalid" class="text-danger">
       Please enter a title
     </span>
   </div>
+
   <div class="form-group">
     <label>Category</label>
     <input class="form-control" #category="ngModel" name="category"

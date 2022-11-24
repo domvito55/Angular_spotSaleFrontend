@@ -20,24 +20,48 @@
     </div>
     <div class="col-9 p-2">
       {{productsQuantity}} Products
-      <div *ngFor="let product of products" class="card m-1 p-1 bg-light">
-        <h4>
-          {{product.title}}
-          <span class="badge badge-pill badge-primary float-right">
-            {{ product.price | currency:"USD":"symbol":"2.2-2" }}
-            
-          </span>
-        </h4>
-        <div class="card-text bg-white p-1">
-          {{product.description}}
-          <button *ngIf="belongsToThisSessionUser(product)" class="btn btn-sm btn-warning float-right" style="width: 58px; margin-right: 10px;"
-            [routerLink]="['/product/edit', product._id]">
-            Edit
-          </button>
-          <!-- The user is not allowed to delete -->
-          <!-- <button class="btn btn-sm btn-danger float-right" (click)="deleteProduct(product._id)" style="margin-top: 5px; margin-right: 10px; clear:both">
-            Delete
-          </button> -->
+      <div *ngFor="let product of products">
+        <div *ngIf="product.enable" class="card m-1 p-1 bg-light">
+          <h4>
+            {{product.title}}
+            <span class="badge badge-pill badge-primary float-right">
+              {{ product.price | currency:"USD":"symbol":"2.2-2" }}
+              
+            </span>
+          </h4>
+          <div class="card-text bg-white p-1">
+            {{product.description}}
+            <button *ngIf="belongsToThisSessionUser(product)" class="btn btn-sm btn-warning float-right" style="width: 58px; margin-right: 10px;"
+              [routerLink]="['/product/edit', product._id]">
+              Edit
+            </button>
+            <!-- The user is not allowed to delete -->
+            <!-- <button class="btn btn-sm btn-danger float-right" (click)="deleteProduct(product._id)" style="margin-top: 5px; margin-right: 10px; clear:both">
+              Delete
+            </button> -->
+          </div>
+        </div>
+        <div *ngIf="!product.enable">
+          <div *ngIf="belongsToThisSessionUser(product)" class="card m-1 p-1 bg-light" style="opacity: .5;">
+            <h4>
+              {{product.title}}
+              <span class="badge badge-pill badge-primary float-right">
+                {{ product.price | currency:"USD":"symbol":"2.2-2" }}
+                
+              </span>
+            </h4>
+            <div class="card-text bg-white p-1">
+              {{product.description}}
+              <button *ngIf="belongsToThisSessionUser(product)" class="btn btn-sm btn-warning float-right" style="width: 58px; margin-right: 10px;"
+                [routerLink]="['/product/edit', product._id]">
+                Edit
+              </button>
+              <!-- The user is not allowed to delete -->
+              <!-- <button class="btn btn-sm btn-danger float-right" (click)="deleteProduct(product._id)" style="margin-top: 5px; margin-right: 10px; clear:both">
+                Delete
+              </button> -->
+            </div>
+          </div>
         </div>
       </div>
       <div class="form-inline float-left mr-1">
