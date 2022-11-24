@@ -1,0 +1,42 @@
+<!--
+  Title:       SpotSale
+  IDs:         301208156, 301236904, 301251832, 301313468, 301268678
+  Description: Header.
+-->
+<!-- Banner -->
+<div class="row bg-dark text-white">
+  <div class="col-7"  style="padding: 0;">
+    <button class="btn btn-sm bg-dark" [routerLink]="['/']">
+      <img src="../assets/Logo.png" alt="logo" width="50" style="margin-right: 4px;">
+      <a class="navbar-brand text-white">SpotSale</a>
+    </button>
+  </div>
+  <div class="col-5">
+    <a *ngIf="pageTitle == 'Landing Page';"
+          class="btn btn-primary align-self-end float-right"
+          routerLink="/product" role="button" style="margin-top: 9px;">
+      + Add a new Item
+    </a>
+  </div>
+</div>
+<!-- Navbar -->
+<nav class="row bg-secondary navbar-dark">
+  <ul class="navbar-nav" style="padding-left: 10px;">
+    <li class="nav-item">
+      <a *ngIf="auth.username != null" class="nav-link" routerLink="" (click)="logout()"  style="height: 20px; line-height: 15px; margin: 0; padding: 0;">Sign Out ({{ auth.username }})</a>
+      <a *ngIf="auth.username == null" class="nav-link" routerLink="/users/signin"  style="height: 20px; line-height: 15px; margin: 0; padding: 0;">Signin</a>
+      <!-- <a class="nav-link" routerLink="/users/signin" style="height: 20px; line-height: 15px; margin: 0; padding: 0;">
+        Signin
+      </a> -->
+    </li>
+  </ul>
+</nav>
+<!-- Page Title -->
+<div *ngIf="pageTitle == 'Create';" class="row bg-primary p-2 text-white" [class.bg-warning]="editing"
+     [class.text-dark]="editing">
+    <h5>{{editing  ? "Edit" : "Create"}} Product</h5>
+</div>
+<div *ngIf="(pageTitle=='Sign-up' || pageTitle=='Sign-in');" class="row bg-primary p-2 text-white" [class.bg-warning]="signupmode"
+     [class.text-dark]="signupmode">
+    <h5>{{pageTitle}}</h5>
+</div>
