@@ -3,19 +3,26 @@
   IDs:         301208156, 301236904, 301251832, 301313468, 301268678
   Description: view for creating and editing a product ad.
  -->
-<div class="container-fluid">
+<div class="container-fluid" >
   <app-header [pageTitle]="pageTitle" [editing]="editing"></app-header>
-</div>
 <form #form="ngForm" novalidate
-      (ngSubmit)="submitProduct(form)" class="m-2">
+      (ngSubmit)="submitProduct(form)" class="m-2"  style="min-height: 100vh">
   <div class="form-group">
     <label>Title</label>
+    <a *ngIf="editing"
+        class="btn btn-success align-self-end float-right"
+        [class.btn-danger]="product.enable"
+        role="button" style="margin-bottom: 2px; margin-top: -5px;"
+        (click)="product.enable = !product.enable" >
+        {{product.enable ? "DEACTIVE" : "ACTIVE"}}
+    </a>
     <input class="form-control" #title="ngModel" name="title"
             [(ngModel)]="product.title" required />
     <span *ngIf="submitted && title.invalid" class="text-danger">
       Please enter a title
     </span>
   </div>
+
   <div class="form-group">
     <label>Category</label>
     <input class="form-control" #category="ngModel" name="category"
@@ -40,18 +47,11 @@
       Please enter a small description
     </span>
   </div>
-  <input class="form-control" #enable="ngModel" name="enable"
-  [(ngModel)]="product.enable" required />
-<span *ngIf="submitted && enable.invalid" class="text-danger">
-Please enter a enable
-</span>
   <div class="text-center">
     <button class="btn btn-secondary m-1" routerLink="/store">Back</button>
     <button type="submit" class="btn btn-primary" [class.btn-warning]="editing">
       {{editing ? "Save" : "Create"}}
     </button>
-
   </div>
-
 </form>
 <app-footer></app-footer>

@@ -27,6 +27,7 @@ export class ProductDetailComponent {
         //decide if the page is for edit or create
         this.editing = activeRoute.snapshot.params["mode"] == "edit";
 
+        //Edit
         if (this.editing) {
             Object.assign(this.product,
                 repository.getProduct(activeRoute.snapshot.params["id"]));
@@ -39,16 +40,16 @@ export class ProductDetailComponent {
         this.editing = activeRoute.snapshot.params["mode"] == "edit";
 
         // Edit
-        if (this.editing) {
-            this.product = this.repository.getProduct(activeRoute.snapshot.params["id"]);
-        }
+        // if (this.editing) {
+        //     this.product = this.repository.getProduct(activeRoute.snapshot.params["id"]);
+        // }
     }
 
 
-    save(form: NgForm) {
-        this.repository.saveProduct(this.product);
-        this.router.navigateByUrl("/");
-    }
+    // save(form: NgForm) {
+    //     this.repository.saveProduct(this.product);
+    //     this.router.navigateByUrl("/");
+    // }
 
     private deleteProduct(id: string) {
         this.repository.deleteProduct(id);

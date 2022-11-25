@@ -29,7 +29,7 @@ export class StoreComponent {
 
     constructor(private repository: ProductRepository,
         private router: Router,
-        private dataSource: RestDataSource) {
+        private dataSource: RestDataSource) { 
             repository.setProduct();
         }
 
@@ -48,13 +48,6 @@ export class StoreComponent {
     belongsToThisSessionUser(product: Product): boolean {
         return (product.owner == this.dataSource.user_id);
     }
-    Activeproduct(product: Product): boolean {
-      if(product.owner == this.dataSource.user_id )
-      return product.enable;
-      else{
-        return true;
-      }
-  }
     changePage(newPage: number) {
         this.selectedPage = newPage;
     }

@@ -13,24 +13,17 @@
   </div>
   <div class="col-5">
     <a *ngIf="pageTitle == 'Landing Page';"
-          class="btn btn-primary align-self-end float-right"
-          routerLink="/product" role="button" style="margin-top: 9px;">
-      + Add a new Item
-    </a>
+    class="btn btn-primary align-self-end float-right"
+    routerLink="/product" role="button" style="margin-top: 9px;">
++ Add a new Item
+</a>
+    <a *ngIf="auth.username != null" class="btn btn-secondary  float-right mr-3" routerLink="" (click)="logout()"  style="margin-top: 9px;">
+      <i class="fa fa-door-open"></i> Sign Out ({{ auth.username }})</a>
+    <a *ngIf="auth.username == null" class="btn btn-light float-right mr-3" routerLink="/users/signin"  style="margin-top: 9px;">
+      <i class="fa fa-door-closed"></i> Sign-in</a>
   </div>
 </div>
-<!-- Navbar -->
-<nav class="row bg-secondary navbar-dark">
-  <ul class="navbar-nav" style="padding-left: 10px;">
-    <li class="nav-item">
-      <a *ngIf="auth.username != null" class="nav-link" routerLink="" (click)="logout()"  style="height: 20px; line-height: 15px; margin: 0; padding: 0;">Sign Out ({{ auth.username }})</a>
-      <a *ngIf="auth.username == null" class="nav-link" routerLink="/users/signin"  style="height: 20px; line-height: 15px; margin: 0; padding: 0;">Signin</a>
-      <!-- <a class="nav-link" routerLink="/users/signin" style="height: 20px; line-height: 15px; margin: 0; padding: 0;">
-        Signin
-      </a> -->
-    </li>
-  </ul>
-</nav>
+
 <!-- Page Title -->
 <div *ngIf="pageTitle == 'Create';" class="row bg-primary p-2 text-white" [class.bg-warning]="editing"
      [class.text-dark]="editing">
