@@ -3,11 +3,10 @@
   IDs:         301208156, 301236904, 301251832, 301313468, 301268678
   Description: view for creating and editing a product ad.
  -->
-<div class="container-fluid">
+<div class="container-fluid" >
   <app-header [pageTitle]="pageTitle" [editing]="editing"></app-header>
-</div>
 <form #form="ngForm" novalidate
-      (ngSubmit)="submitProduct(form)" class="m-2">
+      (ngSubmit)="submitProduct(form)" class="m-2"  style="min-height: 100vh">
   <div class="form-group">
     <label>Title</label>
     <a *ngIf="editing"
