@@ -40,11 +40,18 @@
       Please enter a small description
     </span>
   </div>
+  <input class="form-control" #enable="ngModel" name="enable"
+  [(ngModel)]="product.enable" required />
+<span *ngIf="submitted && enable.invalid" class="text-danger">
+Please enter a enable
+</span>
   <div class="text-center">
     <button class="btn btn-secondary m-1" routerLink="/store">Back</button>
     <button type="submit" class="btn btn-primary" [class.btn-warning]="editing">
       {{editing ? "Save" : "Create"}}
     </button>
+
   </div>
+
 </form>
 <app-footer></app-footer>

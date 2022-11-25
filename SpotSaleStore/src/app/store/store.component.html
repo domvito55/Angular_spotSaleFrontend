@@ -20,12 +20,13 @@
     </div>
     <div class="col-9 p-2">
       {{productsQuantity}} Products
-      <div *ngFor="let product of products" class="card m-1 p-1 bg-light">
+      <div *ngFor="let product of products" >
+        <div  [hidden]="Activeproduct(product)" class="card m-1 p-1 bg-light">
         <h4>
           {{product.title}}
           <span class="badge badge-pill badge-primary float-right">
             {{ product.price | currency:"USD":"symbol":"2.2-2" }}
-            
+
           </span>
         </h4>
         <div class="card-text bg-white p-1">
@@ -40,6 +41,7 @@
           </button> -->
         </div>
       </div>
+    </div>
       <div class="form-inline float-left mr-1">
         <select class="form-control" [value]="productsPerPage" #pageSize
                 (change)="changePageSize(pageSize.value)">
