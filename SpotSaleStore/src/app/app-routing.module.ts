@@ -18,8 +18,8 @@ import { AuthGuard } from "./auth/auth.guard";
     { path: "", component: StoreComponent },
     { path: "store", component: StoreComponent },
     { path: "product/:mode/:id", component: ProductDetailComponent, canActivate: [AuthGuard]},
-    { path: "product/:mode", component: ProductDetailComponent,  canActivate: [AuthGuard]},
-    { path: "product", component: ProductDetailComponent },
+    { path: "product/:mode", component: ProductDetailComponent, canActivate: [AuthGuard]},
+    { path: "product", component: ProductDetailComponent, canActivate: [AuthGuard] },
     { path: "users/signin", component: SignInComponent },
     { path: "users/signup", component: SignUpComponent },
     { path: "**", redirectTo: "" }
