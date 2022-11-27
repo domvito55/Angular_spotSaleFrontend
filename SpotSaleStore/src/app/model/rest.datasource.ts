@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Product } from "./product.model";
 import { ResponseModel } from "./response.model";
 import { User } from "./user.model";
+import { environment } from "src/environments/environment";
 
 
 
@@ -23,8 +24,9 @@ export class RestDataSource {
   constructor(private http: HttpClient) {
 
   //  this.baseUrl = "https://groupproject-comp229-2022.herokuapp.com/advertisement/";
-  this.baseUrl = `${PROTOCOL}://orca-app-yod9h.ondigitalocean.app`;
+  // this.baseUrl = `${PROTOCOL}://orca-app-yod9h.ondigitalocean.app`;
   //    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+  this.baseUrl=environment.apiUrl;
   }
 
   getProducts(): Observable<Product[]> {
