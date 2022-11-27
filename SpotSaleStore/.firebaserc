@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "deployfirebase-a6f63": {
+      "hosting": {
+        "SpotSaleStore": [
+          "deployfirebase-a6f63"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "deployfirebase-a6f63"
+  }
+}

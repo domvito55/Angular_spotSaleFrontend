@@ -123,6 +123,16 @@
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "SpotSaleStore:build:production",
+            "firebaseProject": "deployfirebase-a6f63",
+            "firebaseHostingSite": "deployfirebase-a6f63"
+          }
         }
       }
     }
