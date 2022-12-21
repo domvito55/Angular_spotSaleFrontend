@@ -1,0 +1,7 @@
+/*
+  Title:       SpotSale
+  IDs:         301208156, 301236904, 301251832, 301313468, 301268678
+  Description: Feedback to user form validation
+*/
+input.ng-dirty.ng-invalid { border: 2px solid #ff0000 }
+input.ng-dirty.ng-valid { border: 2px solid #6bc502 }

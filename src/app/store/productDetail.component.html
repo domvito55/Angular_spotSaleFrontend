@@ -1,0 +1,73 @@
+<!--
+  Title:       SpotSale
+  IDs:         301208156, 301236904, 301251832, 301313468, 301268678
+  Description: view for creating and editing a product ad.
+ -->
+ <div class="container-fluid" >
+  <app-header [pageTitle]="pageTitle" [editing]="editing"></app-header>
+<form #form="ngForm" novalidate
+      (ngSubmit)="submitProduct(form)" class="m-2"  style="min-height: 100vh">
+  <div class="form-group">
+    <label>Title</label>
+    <a *ngIf="editing"
+        class="btn btn-success align-self-end float-right"
+        [class.btn-danger]="product.enable"
+        role="button" style="margin-bottom: 2px; margin-top: -5px;"
+        (click)="product.enable = !product.enable" >
+        {{product.enable ? "DEACTIVE" : "ACTIVE"}}
+    </a>
+    <input class="form-control" #title="ngModel" name="title"
+            [(ngModel)]="product.title" required />
+    <span *ngIf="submitted && title.invalid" class="text-danger">
+      Please enter a title
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label>Category</label>
+    <input class="form-control" #category="ngModel" name="category"
+            [(ngModel)]="product.category" required />
+    <span *ngIf="submitted && category.invalid" class="text-danger">
+      Please enter a category
+    </span>
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input class="form-control" #price="ngModel" name="price"
+            [(ngModel)]="product.price" required />
+    <span *ngIf="submitted && price.invalid" class="text-danger">
+      Please enter the price
+    </span>
+  </div>
+  <div class="form-group">
+    <label>Image URL</label>
+    <input class="form-control" #imageURL="ngModel" name="imageURL"
+            [(ngModel)]="product.imageURL" required />
+    <span *ngIf="submitted && imageURL.invalid" class="text-danger">
+      Please enter the image URL
+    </span>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input class="form-control" #description="ngModel" name="description"
+            [(ngModel)]="product.description" required />
+    <span *ngIf="submitted && description.invalid" class="text-danger">
+      Please enter a small description
+    </span>
+  </div>
+  <div class="form-group">
+    <label>Expiration date</label>
+    <input type="datetime-local" class="form-control" #expDate="ngModel" name="expDate"
+            [(ngModel)]="expDateValue" required />
+    <span *ngIf="submitted && description.invalid" class="text-danger">
+      Please enter a Expiration Date
+    </span>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-secondary m-1" routerLink="/store">Back</button>
+    <button type="submit" class="btn btn-primary" [class.btn-warning]="editing">
+      {{editing ? "Save" : "Create"}}
+    </button>
+  </div>
+</form>
+<app-footer></app-footer>

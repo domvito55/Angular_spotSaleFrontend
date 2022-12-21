@@ -1,0 +1,70 @@
+<!--
+  Title:       SpotSale
+  IDs:         301208156, 301236904, 301251832, 301313468, 301268678
+  Description: view for visiting an adv.
+ -->
+ <div class="container-fluid" >
+  <app-header [pageTitle]="pageTitle"></app-header>
+  <br>
+  <div class="card">
+    <div class="row">
+      <aside class="col-sm-4 border-right">
+        <article class="gallery-wrap" > 
+          <div class="image" style="text-align: center;">
+            <picture>
+              <img src={{product.imageURL}} width="260vh" height="280vh">
+            </picture>
+          </div>
+        </article>
+      </aside>
+      <aside class="col-sm-7">
+        <article class="card-body p-5">
+          <h3 class="title mb-3">{{product.title}}</h3>
+          <p class="price-detail-wrap"> 
+            <span class="price h3"> 
+              {{ product.price | currency:"USD":true:"1.2-2" }}
+            </span> 
+          </p>
+          <dl class="item-property">
+            <dt>Description</dt>
+            <dd><p>{{product.description}}</p></dd>
+            <dt>Category</dt>
+            <dd><p>{{product.category}}</p></dd>
+          </dl>
+          <hr>
+        </article>
+      </aside>
+    </div>
+  </div>
+
+  <div  #btnAddQuestion class="row">
+    <div class="col-12">
+      <button class="btn btn-block btn-outline-primary"  (click)="addQuestion()" style="margin-top: 5px;">
+        New Question
+      </button>
+    </div>
+  </div>
+
+  <div #Q&A>
+    <div *ngFor="let question of product.questionAnswer; let i = index;">
+      <div class="commentl">
+        <p>
+          {{question.question}}
+          <button *ngIf="question.answer == '' && belongsToThisSessionUser(product)" class="badge badge-warning align-self-end float-right" style="width: auto; margin: 5px;"
+            (click)="answer(i)">
+              Answer
+          </button>
+        </p>
+      </div>
+      <div *ngIf="question.answer"  class="commentr">
+        <p>
+          {{question.answer}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="clear: both;"></div>
+
+<app-footer></app-footer>

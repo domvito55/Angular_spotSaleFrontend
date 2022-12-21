@@ -1,0 +1,35 @@
+<!--
+  Title:       SpotSale
+  IDs:         301208156, 301236904, 301251832, 301313468, 301268678
+  Description: Header.
+-->
+<!-- Banner -->
+<div class="row bg-dark text-white">
+  <div class="col-7"  style="padding: 0;">
+    <button class="btn btn-sm bg-dark" [routerLink]="['/']">
+      <img src="../assets/Logo.png" alt="logo" width="50" style="margin-right: 4px;">
+      <a class="navbar-brand text-white">SpotSale</a>
+    </button>
+  </div>
+  <div class="col-5">
+    <a *ngIf="pageTitle == 'Landing Page';"
+    class="btn btn-primary align-self-end float-right"
+    routerLink="/product/add" role="button" style="margin-top: 9px;">
++ Add a new Item
+</a>
+    <a *ngIf="auth.username != null" class="btn btn-secondary  float-right mr-3" routerLink="" (click)="logout()"  style="margin-top: 9px;">
+      <i class="fa fa-door-open"></i> Sign Out ({{ auth.username }})</a>
+    <a *ngIf="auth.username == null" class="btn btn-light float-right mr-3" routerLink="/users/signin"  style="margin-top: 9px;">
+      <i class="fa fa-door-closed"></i> Sign-in</a>
+  </div>
+</div>
+
+<!-- Page Title -->
+<div *ngIf="pageTitle == 'Create';" class="row bg-primary p-2 text-white" [class.bg-warning]="editing"
+     [class.text-dark]="editing">
+    <h5>{{editing  ? "Edit" : "Create"}} Product</h5>
+</div>
+<div *ngIf="(pageTitle=='Sign-up' || pageTitle=='Sign-in');" class="row bg-primary p-2 text-white" [class.bg-warning]="signupmode"
+     [class.text-dark]="signupmode">
+    <h5>{{pageTitle}}</h5>
+</div>

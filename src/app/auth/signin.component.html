@@ -1,0 +1,36 @@
+<!--
+  Title:       SpotSale
+  IDs:         301208156, 301236904, 301251832, 301313468, 301268678
+  Description: Sing-in view.
+-->
+<div class="container-fluid"  style="min-height: 100vh">
+    <app-header [pageTitle]="pageTitle"></app-header>
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <div class="bg-danger mt-2 p-2 text-center text-white" *ngIf="message != null">
+                {{message}}
+            </div>
+            <form novalidate #form="ngForm" (ngSubmit)="authenticate(form)">
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" name="username" [(ngModel)]="username" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" name="password" [(ngModel)]="password" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Sign In" />
+                    <button class="btn btn-warning" style="margin-left: 5px;"
+                      [routerLink]="['/users/signup']">                
+                      <i class="fas fa-user-plus"></i> 
+                      Sign-up
+                    </button>
+                </div>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
