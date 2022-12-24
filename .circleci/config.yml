@@ -24,6 +24,7 @@ jobs:
             apt-get install -y nodejs
       - run:
           name: Install Dependencies
+          # This will install all de dependencies, including the devDependecies, as we need the Angular/CLI
           command: |
             npm install
       - run:
