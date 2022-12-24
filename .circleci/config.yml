@@ -1,15 +1,22 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference 
 version: 2.1
 jobs:
-  deploy:
+  # Define a job to be invoked later in a workflow.
+  # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+  #_________ name of the job (originaly sey-hello)
+  deployment:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
+      # This is the default I changed the image to use one with gcloud pre-installed
+      # - image: cimg/base:stable 
+      # This is a Ubuntu image
       - image: google/cloud-sdk
-    resource_class: small
-
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       # Checkout the code as the first step.
       - checkout
-
       - run:
           name: Install Node.js
           command: |
@@ -28,16 +35,18 @@ jobs:
           command: |
             npm prune --production
       # Make sure you enabled on GCP: Cloud Build API, Cloud Resource Manager API, and App Engine Admin API.
+      # ____________ Google Cloud Authentication; vertical bar is a substitute for quotes
       - run:
-          name: Setup Google Cloud CLI
+          name: "Google Cloud Authentication"
           command: |
             echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
-            gcloud --quiet config set project spotsale-frontend
+            gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
             gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+      #_________ Deploy the app
       - run:
-          name: Deploy the app
-          command: |
-            gcloud app deploy
+          name: "Deploy the app"
+          command: "gcloud app deploy"
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:

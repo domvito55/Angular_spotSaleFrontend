@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl:"https://orca-app-yod9h.ondigitalocean.app"
+  apiUrl:"https://spotsalebackend.uk.r.appspot.com/"
   // apiUrl:"http://localhost:3000/"
 };
 

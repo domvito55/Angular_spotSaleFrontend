@@ -6,6 +6,8 @@ import { HttpHeaders } from '@angular/common/http';
 import { Product } from "./product.model";
 import { ResponseModel } from "./response.model";
 import { User } from "./user.model";
+// Despite the name, according to Julio this will bring content either from evironment.ts or environment.prod.ts
+// Depending on if it is being used on dev or production
 import { environment } from "src/environments/environment";
 
 
